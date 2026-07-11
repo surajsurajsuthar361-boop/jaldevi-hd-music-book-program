@@ -4,16 +4,24 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jaldevi_hd_music_book_program/presentation/notifiers/upcoming_bookings_notifier.dart';
 import 'package:jaldevi_hd_music_book_program/presentation/widgets/upcoming_booking_card.dart';
 
-class UpcomingBookingsList extends ConsumerWidget {
+class UpcomingBookingsList extends ConsumerStatefulWidget {
   const UpcomingBookingsList({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final upcomingBookingsState = ref.watch(upcomingBookingsNotifierProvider);
+  ConsumerState<UpcomingBookingsList> createState() => _UpcomingBookingsListState();
+}
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(upcomingBookingsNotifierProvider.notifier).fetchUpcomingBookings();
-    });
+class _UpcomingBookingsListState extends ConsumerState<UpcomingBookingsList> {
+  @override
+  void initState() {
+    super.initState();
+    // Call fetchUpcomingBookings when the widget is first initialized.
+    ref.read(upcomingBookingsNotifierProvider.notifier).fetchUpcomingBookings();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final upcomingBookingsState = ref.watch(upcomingBookingsNotifierProvider);
 
     return switch (upcomingBookingsState) {
       UpcomingBookingsInitial() => const Center(child: Text('Initial State')),
