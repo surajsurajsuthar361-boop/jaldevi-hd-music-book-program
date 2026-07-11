@@ -1,7 +1,7 @@
 name: admin_panel
 description: Admin panel for JALDEVI HD MUSIC BOOK PROGRAM.
 
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -11,13 +11,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: ^2.1.0
-  firebase_auth: ^4.0.0
-  cloud_firestore: ^4.0.0
-  firebase_storage: ^11.0.0
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.14.0
+  firebase_storage: ^11.6.0
   file_picker: ^5.0.0
   google_sign_in: ^6.0.0
-  firebase_functions: ^4.0.0
+  firebase_functions: any
   flutter_web_plugins:
     sdk: flutter
 
